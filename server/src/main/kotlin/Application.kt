@@ -1,5 +1,6 @@
 package com.example.multiplatform.server
 
+import com.example.multiplatform.shared.Message
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -8,7 +9,6 @@ import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.routing
 import io.ktor.serialization.serialization
-import kotlinx.serialization.Serializable
 
 fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 
@@ -26,9 +26,5 @@ fun Application.module(testing: Boolean = false) {
     }
 }
 
+@Suppress("UNRESOLVED_REFERENCE") // IDE has trouble seeing import from Shared from jvm-only module
 private val message = Message("hello")
-
-
-// TODO something's missing in gradle and we're not picking up common code from :shared. Duplicating this here for now.
-@Serializable
-data class Message(val value: String)
