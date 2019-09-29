@@ -7,9 +7,7 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.features.logging.Logging
 import io.ktor.client.request.get
-import io.ktor.client.request.parameter
 import io.ktor.http.URLProtocol
-import kotlinx.serialization.json.Json
 
 class ApiClient(engine: HttpClientEngine = httpClientEngine) {
     private val httpClient = HttpClient(engine) {
