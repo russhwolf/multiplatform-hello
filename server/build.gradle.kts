@@ -17,9 +17,6 @@ dependencies {
     implementation(project(":shared"))
 
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-server-host-common:$ktorVersion")
-    implementation("io.ktor:ktor-locations:$ktorVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
 
     implementation("ch.qos.logback:logback-classic:1.2.3")
