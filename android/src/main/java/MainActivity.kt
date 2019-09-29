@@ -1,4 +1,4 @@
-package com.russhwolf.settings.example.android
+package com.example.multiplatform.android
 
 import android.app.Activity
 import android.os.Bundle
