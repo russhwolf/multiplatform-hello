@@ -14,6 +14,7 @@
 		4630FF0B23400E1F00819003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4630FF0923400E1F00819003 /* LaunchScreen.storyboard */; };
 		4630FF1623400E1F00819003 /* Multiplatform_HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FF1523400E1F00819003 /* Multiplatform_HelloTests.swift */; };
 		4630FF2123400E1F00819003 /* Multiplatform_HelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FF2023400E1F00819003 /* Multiplatform_HelloUITests.swift */; };
+		468EEF56234042270067473E /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798ED4B15B0A538239CEC606 /* Shared.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468EEF56234042270067473E /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +119,13 @@
 			path = "Multiplatform HelloUITests";
 			sourceTree = "<group>";
 		};
+		468EEF55234042270067473E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FEEEBC52568AFCA6B85CEF13 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +133,7 @@
 				4630FF1423400E1F00819003 /* Multiplatform HelloTests */,
 				4630FF1F23400E1F00819003 /* Multiplatform HelloUITests */,
 				12C3D4BAB246B5761102BA5D /* Products */,
+				468EEF55234042270067473E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,10 +250,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0FD4EFCCD2E032401F7255C /* Shared */,
 				4630FEFD23400E1D00819003 /* Multiplatform Hello */,
 				4630FF1023400E1F00819003 /* Multiplatform HelloTests */,
 				4630FF1B23400E1F00819003 /* Multiplatform HelloUITests */,
+				B0FD4EFCCD2E032401F7255C /* Shared */,
 			);
 		};
 /* End PBXProject section */
