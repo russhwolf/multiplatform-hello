@@ -40,8 +40,6 @@ kotlin {
                 api("io.ktor:ktor-client-json:$ktorVersion")
                 api("io.ktor:ktor-client-serialization:$ktorVersion")
                 api("io.ktor:ktor-client-logging:$ktorVersion")
-
-                api("com.russhwolf:multiplatform-settings:0.3.3")
             }
         }
         commonTest {
