@@ -1,12 +1,15 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework.BitcodeEmbeddingMode.BITCODE
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeOutputKind
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlinx-serialization")
-    id("org.jetbrains.kotlin.xcode-compat") version "0.2.3"
 }
 
 val coroutineVersion = "1.3.0"
@@ -14,11 +17,16 @@ val ktorVersion = "1.2.4"
 
 kotlin {
     android("android")
-    xcode {
-        setupFramework("ios") {
-            baseName = "Shared"
-            embedBitcode = BITCODE
-            transitiveExport = true
+
+    val isDevice = System.getenv("SDK_NAME")?.startsWith("iphoneos") == true
+    val ios: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget = if (isDevice) ::iosArm64 else ::iosX64
+    ios("ios") {
+        binaries {
+            framework {
+                baseName = "Shared"
+                embedBitcode = BITCODE
+                transitiveExport = true
+            }
         }
     }
 
@@ -109,6 +117,37 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
+
+// Adapted from Jetbrains xcode-compat plugin
+kotlin.targets.withType<KotlinNativeTarget>().configureEach {
+    binaries.withType<Framework>().configureEach {
+        val buildType = NativeBuildType.valueOf(
+            System.getenv("CONFIGURATION")?.toUpperCase()
+                ?: "DEBUG"
+        )
+        if (this.buildType == buildType) {
+            var dsymTask: Sync? = null
+
+            if (buildType == NativeBuildType.DEBUG) {
+                dsymTask = project.task<Sync>("buildForXcodeDSYM") {
+                    dependsOn(linkTask)
+                    val outputFile = linkTask.outputFile.get()
+                    val outputDSYM = File(outputFile.parent, outputFile.name + ".dSYM")
+                    from(outputDSYM)
+                    into(File(System.getenv("CONFIGURATION_BUILD_DIR"), outputDSYM.name))
+                }
+            }
+
+            val buildForXcodeTask = project.task<Sync>("buildForXcode") {
+                dependsOn(dsymTask ?: linkTask)
+                val outputFile = linkTask.outputFile.get()
+                from(outputFile)
+                into(File(System.getenv("CONFIGURATION_BUILD_DIR"), outputFile.name))
+            }
+        }
+    }
+}
+
 
 // TODO For no reason I can explain, binaries.getTest() isn't resolving here despite this being identical to :shared module
 //tasks.create("iosTest") {
