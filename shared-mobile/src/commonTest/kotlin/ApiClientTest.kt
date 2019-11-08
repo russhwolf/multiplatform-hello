@@ -26,7 +26,8 @@ class ApiClientTest {
 
     private val apiClient = ApiClient(mockEngine)
 
-    @Test fun getMessage() = runBlocking {
+    @Test
+    fun getMessage() = runBlocking {
         val message = apiClient.getMessage()
         assertEquals(
             expected = Message("test"),
