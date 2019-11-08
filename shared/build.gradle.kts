@@ -12,12 +12,8 @@ kotlin {
     jvm()
 
     val isDevice = System.getenv("SDK_NAME")?.startsWith("iphoneos") == true
-    val iosTarget = if (isDevice) {
-        presets.getByName("iosArm64")
-    } else {
-        presets.getByName("iosX64")
-    }
-    targetFromPreset(iosTarget, "ios")
+    val ios: (String) -> KotlinNativeTarget = if (isDevice) ::iosArm64 else ::iosX64
+    ios("ios")
 
     sourceSets {
         all {
@@ -68,13 +64,13 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-tasks.create("iosTest") {
+task("iosTest") {
     dependsOn("linkDebugTestIos")
     doLast {
         val testBinaryPath =
             (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile.absolutePath
         exec {
-            commandLine("xcrun", "simctl", "spawn", "iPhone Xʀ", testBinaryPath)
+            commandLine("xcrun", "simctl", "spawn", "--standalone", "iPhone 11", testBinaryPath)
         }
     }
 }

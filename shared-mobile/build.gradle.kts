@@ -1,9 +1,7 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework.BitcodeEmbeddingMode.BITCODE
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBinary
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
-import org.jetbrains.kotlin.gradle.plugin.mpp.NativeOutputKind
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -149,15 +147,14 @@ kotlin.targets.withType<KotlinNativeTarget>().configureEach {
 }
 
 
-// TODO For no reason I can explain, binaries.getTest() isn't resolving here despite this being identical to :shared module
-//tasks.create("iosTest") {
-//    dependsOn("linkDebugTestIos")
-//    doLast {
-//        val testBinaryPath =
-//            (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile.absolutePath
-//        exec {
-//            commandLine("xcrun", "simctl", "spawn", "iPhone Xʀ", testBinaryPath)
-//        }
-//    }
-//}
-//tasks["check"].dependsOn("iosTest")
+task("iosTest") {
+    dependsOn("linkDebugTestIos")
+    doLast {
+        val testBinaryPath =
+            (kotlin.targets["ios"] as KotlinNativeTarget).binaries.getTest("DEBUG").outputFile.absolutePath
+        exec {
+            commandLine("xcrun", "simctl", "spawn", "--standalone", "iPhone 11", testBinaryPath)
+        }
+    }
+}
+tasks["check"].dependsOn("iosTest")
