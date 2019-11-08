@@ -28,9 +28,7 @@ The Android app can be built by creating and running an Android run configuratio
 
 ### iOS
 
-The iOS code lives in `shared-mobile/xcodeproj`. It makes use of the `xcode-compat` gradle plugin which generates the gradle task needed to sync the `:shared-mobile` output framework to Xcode. 
-
-It includes a ViewController which calls the `hello()` function and renders its output to screen. 
+The iOS code lives in `shared-mobile/xcodeproj`. It includes a ViewController which calls the `hello()` function and renders its output to screen. 
 
 The iOS code can be modified or built by opening `shared-mobile/xcodeproj/Shared.xcodeproj` in Xcode.
 
@@ -40,6 +38,4 @@ Unit tests exist for the `:shared`, `:shared-mobile`, and `:server` modules. The
 
 ## Known issues
 
-- The `iosTest` task in `shared-mobile` is currently commented-out due to build errors.
-- The IDE doesn't recognize that `:shared` is on the `:server` classpath.
-- The IDE has trouble recognizing the generated `R` class in the `:android` module.
+- The IDE doesn't recognize that `:shared` is on the `:server` classpath. See https://youtrack.jetbrains.com/issue/KT-29082
