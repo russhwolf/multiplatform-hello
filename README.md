@@ -28,9 +28,9 @@ The Android app can be built by creating and running an Android run configuratio
 
 ### iOS
 
-The iOS code lives in `shared-mobile/xcodeproj`. It includes a ViewController which calls the `hello()` function and renders its output to screen. 
+The iOS code lives in the `ios` directory. It includes a ViewController which calls the `hello()` function and renders its output to screen. 
 
-The iOS code can be modified or built by opening `shared-mobile/xcodeproj/Shared.xcodeproj` in Xcode.
+The iOS code can be modified or built by opening `ios/Multiplatform Hello.xcodeproj` in Xcode.
 
 ### Tests
 
