@@ -28,6 +28,10 @@ kotlin {
         }
     }
 
+    js("js") {
+        browser()
+    }
+
     sourceSets {
         all {
             languageSettings.apply {
@@ -95,6 +99,26 @@ kotlin {
         val iosTest by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-mock-native:$ktorVersion")
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutineVersion")
+
+                api("io.ktor:ktor-client-js:$ktorVersion")
+                api("io.ktor:ktor-client-core-js:$ktorVersion")
+                api("io.ktor:ktor-client-json-js:$ktorVersion")
+                api("io.ktor:ktor-client-serialization-js:$ktorVersion")
+                api("io.ktor:ktor-client-logging-js:$ktorVersion")
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
+
+                implementation("io.ktor:ktor-client-mock-js:$ktorVersion")
             }
         }
     }

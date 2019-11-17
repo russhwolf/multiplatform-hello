@@ -15,6 +15,10 @@ kotlin {
     val ios: (String) -> KotlinNativeTarget = if (isDevice) ::iosArm64 else ::iosX64
     ios("ios")
 
+    js("js") {
+        browser()
+    }
+
     sourceSets {
         all {
             languageSettings.apply {
@@ -55,6 +59,18 @@ kotlin {
         }
         val iosTest by getting {
             dependencies {
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+
+                api("org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serializationVersion")
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
             }
         }
     }
