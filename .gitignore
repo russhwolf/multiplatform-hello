@@ -392,3 +392,5 @@ DerivedData/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+###
+!gradle/wrapper/gradle-wrapper.jar
