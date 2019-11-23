@@ -195,6 +195,7 @@ gen
 .mtj.tmp/
 
 # Package Files #
+*.jar
 *.war
 *.nar
 *.ear
@@ -391,3 +392,5 @@ DerivedData/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 
+###
+!gradle/wrapper/gradle-wrapper.jar
