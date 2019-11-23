@@ -19,7 +19,7 @@ rootProject.name = "MultiplatformHello"
 enableFeaturePreview("GRADLE_METADATA")
 
 include(":shared")
-include(":shared-mobile")
+include(":shared-client")
 include(":android")
 include(":browser")
 include(":server")

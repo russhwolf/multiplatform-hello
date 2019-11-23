@@ -298,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared-mobile\" \":shared-mobile:buildForXcode\"\n";
+			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared-client\" \":shared-client:buildForXcode\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

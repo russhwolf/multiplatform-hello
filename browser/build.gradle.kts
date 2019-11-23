@@ -24,7 +24,7 @@ dependencies {
     val ktorVersion = "1.2.6"
 
     implementation(kotlin("stdlib-js"))
-    implementation(project(":shared-mobile"))
+    implementation(project(":shared-client"))
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutineVersion")
 
