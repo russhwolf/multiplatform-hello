@@ -4,6 +4,7 @@ import com.example.multiplatform.shared.Message
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.features.CORS
 import io.ktor.features.ContentNegotiation
 import io.ktor.response.respond
 import io.ktor.routing.get
@@ -17,6 +18,10 @@ fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module(testing: Boolean = false) {
     install(ContentNegotiation) {
         serialization()
+    }
+    install(CORS) {
+        anyHost()
+        allowNonSimpleContentTypes = true
     }
 
     routing {

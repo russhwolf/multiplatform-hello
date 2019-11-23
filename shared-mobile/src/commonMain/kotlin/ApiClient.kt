@@ -7,6 +7,7 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.features.logging.Logging
 import io.ktor.client.request.get
+import io.ktor.client.request.header
 import io.ktor.http.URLProtocol
 
 class ApiClient(engine: HttpClientEngine = httpClientEngine) {
