@@ -10,8 +10,8 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.3.0"
-val ktorVersion = "1.2.4"
+val coroutineVersion = "1.3.2-1.3.60"
+val ktorVersion = "1.2.6"
 
 kotlin {
     android("android")
