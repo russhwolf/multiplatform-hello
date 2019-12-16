@@ -10,7 +10,7 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.3.2-1.3.60"
+val coroutineVersion = "1.3.3"
 val ktorVersion = "1.2.6"
 
 kotlin {
