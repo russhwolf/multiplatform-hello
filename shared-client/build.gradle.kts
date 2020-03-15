@@ -28,9 +28,9 @@ kotlin {
         }
     }
 
-    js("js") {
-        browser()
-    }
+//    js("js") {
+//        browser()
+//    }
 
     sourceSets {
         all {
@@ -87,18 +87,18 @@ kotlin {
             dependencies {
             }
         }
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-
-                api("io.ktor:ktor-client-js:$ktorVersion")
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
+//        val jsMain by getting {
+//            dependencies {
+//                implementation(kotlin("stdlib-js"))
+//
+//                api("io.ktor:ktor-client-js:$ktorVersion")
+//            }
+//        }
+//        val jsTest by getting {
+//            dependencies {
+//                implementation(kotlin("test-js"))
+//            }
+//        }
     }
 }
 
