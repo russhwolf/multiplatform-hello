@@ -20,8 +20,8 @@ kotlin {
 
 
 dependencies {
-    val coroutineVersion = "1.3.3"
-    val ktorVersion = "1.2.6"
+    val coroutineVersion = "1.3.4"
+    val ktorVersion = "1.3.2"
 
     implementation(kotlin("stdlib-js"))
     implementation(project(":shared-client"))

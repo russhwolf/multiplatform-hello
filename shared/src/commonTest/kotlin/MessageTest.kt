@@ -5,7 +5,7 @@ import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-@UseExperimental(UnstableDefault::class)
+@OptIn(UnstableDefault::class)
 class MessageTest {
     private val message = Message("test")
     private val json = """{"value":"test"}"""
