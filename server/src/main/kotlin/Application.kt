@@ -9,7 +9,7 @@ import io.ktor.features.ContentNegotiation
 import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.routing
-import io.ktor.serialization.serialization
+import io.ktor.serialization.json
 
 fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 
@@ -17,7 +17,7 @@ fun main(args: Array<String>) = io.ktor.server.netty.EngineMain.main(args)
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
     install(ContentNegotiation) {
-        serialization()
+        json()
     }
     install(CORS) {
         anyHost()
