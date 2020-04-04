@@ -3,7 +3,7 @@ package com.example.multiplatform.android
 import android.app.Activity
 import android.os.Bundle
 import android.widget.TextView
-import com.example.multiplatform.shared.hello
+import com.example.multiplatform.shared.client.hello
 
 class MainActivity : Activity() {
 

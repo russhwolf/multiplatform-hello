@@ -1,5 +1,6 @@
-package com.example.multiplatform.shared
+package com.example.multiplatform.shared.client
 
+import com.example.multiplatform.shared.Message
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.features.defaultRequest
@@ -7,7 +8,6 @@ import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.features.logging.Logging
 import io.ktor.client.request.get
-import io.ktor.client.request.header
 import io.ktor.http.URLProtocol
 
 class ApiClient(engine: HttpClientEngine = httpClientEngine) {

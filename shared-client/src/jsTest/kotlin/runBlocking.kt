@@ -1,4 +1,4 @@
-package com.example.multiplatform.shared
+package com.example.multiplatform.shared.client
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope

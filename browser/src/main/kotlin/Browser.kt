@@ -1,6 +1,6 @@
 package com.example.multiplatform.js
 
-import com.example.multiplatform.shared.hello
+import com.example.multiplatform.shared.client.hello
 import kotlin.browser.document
 
 fun main() {

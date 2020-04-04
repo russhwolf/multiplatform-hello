@@ -1,5 +1,6 @@
-package com.example.multiplatform.shared
+package com.example.multiplatform.shared.client
 
+import com.example.multiplatform.shared.Message
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.HttpHeaders
