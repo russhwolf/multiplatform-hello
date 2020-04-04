@@ -21,7 +21,6 @@ fun Application.module(testing: Boolean = false) {
     }
     install(CORS) {
         anyHost()
-        allowNonSimpleContentTypes = true
     }
 
     routing {
