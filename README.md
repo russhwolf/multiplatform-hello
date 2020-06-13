@@ -49,4 +49,3 @@ Unit tests exist for the `:shared`, `:shared-client`, and `:server` modules. The
 ## Known issues
 
 - The IDE doesn't recognize that `:shared` is on the `:server` classpath. See https://youtrack.jetbrains.com/issue/KT-29082.
-- The gradle `build` task fails on the JS side. See https://github.com/ktorio/ktor/issues/1724.
