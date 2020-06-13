@@ -5,7 +5,7 @@ plugins {
 }
 
 kotlin {
-    target {
+    js {
         browser {
             runTask {
                 outputFileName = "browser.js"
@@ -15,13 +15,14 @@ kotlin {
                 )
             }
         }
+        binaries.executable()
     }
 }
 
 
 dependencies {
-    val coroutineVersion = "1.3.4"
-    val ktorVersion = "1.3.2"
+    val coroutineVersion = "1.3.7-1.4-M2"
+    val ktorVersion = "1.3.2-1.4-M2"
 
     implementation(kotlin("stdlib-js"))
     implementation(project(":shared-client"))

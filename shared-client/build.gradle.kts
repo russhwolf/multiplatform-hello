@@ -10,8 +10,8 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.3.4"
-val ktorVersion = "1.3.2"
+val coroutineVersion = "1.3.7-1.4-M2"
+val ktorVersion = "1.3.2-1.4-M2"
 
 kotlin {
     android("android")
@@ -44,12 +44,12 @@ kotlin {
                 implementation(kotlin("stdlib-common"))
                 implementation(project(":shared"))
 
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$coroutineVersion")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
 
-                api("io.ktor:ktor-client-core-native:$ktorVersion")
-                api("io.ktor:ktor-client-json-native:$ktorVersion")
-                api("io.ktor:ktor-client-serialization-native:$ktorVersion")
-                api("io.ktor:ktor-client-logging-native:$ktorVersion")
+                api("io.ktor:ktor-client-core:$ktorVersion")
+                api("io.ktor:ktor-client-json:$ktorVersion")
+                api("io.ktor:ktor-client-serialization:$ktorVersion")
+                api("io.ktor:ktor-client-logging:$ktorVersion")
             }
         }
         commonTest {
@@ -57,7 +57,7 @@ kotlin {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
 
-                implementation("io.ktor:ktor-client-mock-native:$ktorVersion")
+                implementation("io.ktor:ktor-client-mock:$ktorVersion")
             }
         }
         val androidMain by getting {
@@ -79,7 +79,7 @@ kotlin {
         }
         val iosMain by getting {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$coroutineVersion")
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
                 api("io.ktor:ktor-client-ios:$ktorVersion")
             }
         }
