@@ -1,7 +1,7 @@
 package com.example.multiplatform.js
 
 import com.example.multiplatform.shared.client.hello
-import kotlin.browser.document
+import kotlinx.browser.document
 
 fun main() {
     hello {

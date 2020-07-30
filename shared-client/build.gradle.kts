@@ -10,8 +10,8 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.3.7-1.4-M2"
-val ktorVersion = "1.3.2-1.4-M2"
+val coroutineVersion = "1.3.8-1.4.0-rc"
+val ktorVersion = "1.3.2-1.4.0-rc"
 
 kotlin {
     android("android")
@@ -92,13 +92,6 @@ kotlin {
                 implementation(kotlin("stdlib-js"))
 
                 api("io.ktor:ktor-client-js:$ktorVersion")
-
-                // Workaround for https://github.com/ktorio/ktor/issues/961
-                implementation(npm("bufferutil"))
-                implementation(npm("utf-8-validate"))
-                implementation(npm("abort-controller"))
-                implementation(npm("text-encoding"))
-                implementation(npm("fs"))
             }
         }
         val jsTest by getting {

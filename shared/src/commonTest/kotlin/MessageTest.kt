@@ -1,11 +1,9 @@
 package com.example.multiplatform.shared
 
-import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-@OptIn(UnstableDefault::class)
 class MessageTest {
     private val message = Message("test")
     private val json = """{"value":"test"}"""
@@ -14,7 +12,7 @@ class MessageTest {
     fun messageToJson() {
         assertEquals(
             expected = json,
-            actual = Json.stringify(Message.serializer(), message)
+            actual = Json.encodeToString(Message.serializer(), message)
         )
     }
 
@@ -22,7 +20,7 @@ class MessageTest {
     fun jsonToMessage() {
         assertEquals(
             expected = message,
-            actual = Json.parse(Message.serializer(), json)
+            actual = Json.decodeFromString(Message.serializer(), json)
         )
     }
 }
