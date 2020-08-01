@@ -28,8 +28,6 @@ kotlin {
 
         commonMain {
             dependencies {
-                implementation(kotlin("stdlib-common"))
-
                 api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
             }
         }
@@ -41,7 +39,6 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation(kotlin("stdlib"))
             }
         }
         val jvmTest by getting {
@@ -60,7 +57,6 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-js"))
             }
         }
         val jsTest by getting {

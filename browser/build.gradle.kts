@@ -24,7 +24,6 @@ dependencies {
     val coroutineVersion = "1.3.8-1.4.0-rc"
     val ktorVersion = "1.3.2-1.4.0-rc"
 
-    implementation(kotlin("stdlib-js"))
     implementation(project(":shared-client"))
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutineVersion")

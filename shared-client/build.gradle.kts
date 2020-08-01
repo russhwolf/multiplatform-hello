@@ -41,7 +41,6 @@ kotlin {
 
         commonMain {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 implementation(project(":shared"))
 
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
@@ -62,8 +61,6 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(kotlin("stdlib"))
-
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
                 api("io.ktor:ktor-client-android:$ktorVersion")
             }
@@ -89,8 +86,6 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-js"))
-
                 api("io.ktor:ktor-client-js:$ktorVersion")
             }
         }

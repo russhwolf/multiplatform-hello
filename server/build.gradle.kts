@@ -13,7 +13,6 @@ application {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
     implementation(project(":shared"))
 
     implementation("io.ktor:ktor-server-netty:$ktorVersion")

@@ -24,7 +24,6 @@ android {
 
 dependencies {
     implementation(project(":shared-client"))
-    implementation(kotlin("stdlib"))
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
 }
