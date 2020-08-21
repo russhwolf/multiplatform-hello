@@ -6,7 +6,7 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val serializationVersion = "1.0-M1-1.4.0-rc"
+val serializationVersion = "1.0.0-RC"
 
 kotlin {
     jvm()
@@ -28,7 +28,7 @@ kotlin {
 
         commonMain {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serializationVersion")
+                api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
         commonTest {

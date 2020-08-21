@@ -10,8 +10,8 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.3.8-1.4.0-rc"
-val ktorVersion = "1.3.2-1.4.0-rc"
+val coroutineVersion = "1.3.9"
+val ktorVersion = "1.4.0"
 
 kotlin {
     android("android")
@@ -61,7 +61,6 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
                 api("io.ktor:ktor-client-android:$ktorVersion")
             }
         }
@@ -76,7 +75,6 @@ kotlin {
         }
         val iosMain by getting {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
                 api("io.ktor:ktor-client-ios:$ktorVersion")
             }
         }
