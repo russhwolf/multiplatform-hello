@@ -19,6 +19,7 @@ class ApiClient(engine: HttpClientEngine = httpClientEngine) {
         install(JsonFeature) {
             serializer = KotlinxSerializer()
         }
+        // Disabled due to https://youtrack.jetbrains.com/issue/KTOR-924
 //        install(Logging) {
 //            logger = Logger.SIMPLE
 //            level = LogLevel.ALL
