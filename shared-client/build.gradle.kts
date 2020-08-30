@@ -61,6 +61,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+
                 api("io.ktor:ktor-client-android:$ktorVersion")
             }
         }
