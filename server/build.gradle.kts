@@ -6,7 +6,7 @@ plugins {
     application
 }
 
-val ktorVersion = "1.4.0"
+val ktorVersion = "1.4.1"
 
 application {
     mainClassName = "io.ktor.server.netty.EngineMain"

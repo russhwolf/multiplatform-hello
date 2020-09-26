@@ -25,7 +25,7 @@ class ApiClient(engine: HttpClientEngine = httpClientEngine) {
         }
         install(Logging) {
             logger = Logger.SIMPLE
-            level = LogLevel.HEADERS // TODO Can't use LogLevel.ALL due to https://youtrack.jetbrains.com/issue/KTOR-924
+            level = LogLevel.ALL
         }
     }
 
