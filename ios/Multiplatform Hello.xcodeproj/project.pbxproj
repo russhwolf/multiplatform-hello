@@ -14,7 +14,8 @@
 		4630FF0B23400E1F00819003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4630FF0923400E1F00819003 /* LaunchScreen.storyboard */; };
 		4630FF1623400E1F00819003 /* Multiplatform_HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FF1523400E1F00819003 /* Multiplatform_HelloTests.swift */; };
 		4630FF2123400E1F00819003 /* Multiplatform_HelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FF2023400E1F00819003 /* Multiplatform_HelloUITests.swift */; };
-		468EEF56234042270067473E /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 798ED4B15B0A538239CEC606 /* Shared.framework */; };
+		468348CE2560E9E6003BA896 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468348CD2560E9E6003BA896 /* Shared.framework */; };
+		468348D12560EA0C003BA896 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468348CD2560E9E6003BA896 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		468348C92560E990003BA896 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				468348D12560EA0C003BA896 /* Shared.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4630FEFE23400E1D00819003 /* Multiplatform Hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multiplatform Hello.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4630FF0023400E1E00819003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +63,7 @@
 		4630FF1C23400E1F00819003 /* Multiplatform HelloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multiplatform HelloUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4630FF2023400E1F00819003 /* Multiplatform_HelloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplatform_HelloUITests.swift; sourceTree = "<group>"; };
 		4630FF2223400E1F00819003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		798ED4B15B0A538239CEC606 /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		468348CD2560E9E6003BA896 /* Shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Shared.framework; path = "../shared-client/build/xcode-frameworks/Shared.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468EEF56234042270067473E /* Shared.framework in Frameworks */,
+				468348CE2560E9E6003BA896 /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +95,6 @@
 		12C3D4BAB246B5761102BA5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				798ED4B15B0A538239CEC606 /* Shared.framework */,
 				4630FEFE23400E1D00819003 /* Multiplatform Hello.app */,
 				4630FF1123400E1F00819003 /* Multiplatform HelloTests.xctest */,
 				4630FF1C23400E1F00819003 /* Multiplatform HelloUITests.xctest */,
@@ -122,6 +136,7 @@
 		468EEF55234042270067473E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				468348CD2560E9E6003BA896 /* Shared.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4630FF2923400E1F00819003 /* Build configuration list for PBXNativeTarget "Multiplatform Hello" */;
 			buildPhases = (
+				468348B52560E83C003BA896 /* ShellScript */,
 				4630FEFA23400E1D00819003 /* Sources */,
 				4630FEFB23400E1D00819003 /* Frameworks */,
 				4630FEFC23400E1D00819003 /* Resources */,
+				468348C92560E990003BA896 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,21 +210,6 @@
 			productReference = 4630FF1C23400E1F00819003 /* Multiplatform HelloUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B0FD4EFCCD2E032401F7255C /* Shared */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7DD9E4F947F930F7F5849D70 /* Build configuration list for PBXNativeTarget "Shared" */;
-			buildPhases = (
-				F5640F62560E53EA920C2741 /* Compile Kotlin/Native */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Shared;
-			productName = Shared;
-			productReference = 798ED4B15B0A538239CEC606 /* Shared.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,7 +255,6 @@
 				4630FEFD23400E1D00819003 /* Multiplatform Hello */,
 				4630FF1023400E1F00819003 /* Multiplatform HelloTests */,
 				4630FF1B23400E1F00819003 /* Multiplatform HelloUITests */,
-				B0FD4EFCCD2E032401F7255C /* Shared */,
 			);
 		};
 /* End PBXProject section */
@@ -286,19 +287,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F5640F62560E53EA920C2741 /* Compile Kotlin/Native */ = {
+		468348B52560E83C003BA896 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
-			name = "Compile Kotlin/Native";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared-client\" \":shared-client:buildForXcode\"\n";
+			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared-client\" \":shared-client:packForXcode\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -363,44 +367,13 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2C6EA3D5B8E178C90C55175C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MultiplatformHello.Shared;
-				PRODUCT_MODULE_NAME = "_$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
-			};
-			name = Release;
-		};
-		326C798B6B0B907E8A329D1E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MultiplatformHello.Shared;
-				PRODUCT_MODULE_NAME = "_$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = arm64;
-			};
-			name = Debug;
-		};
 		4630FF2323400E1F00819003 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDQ7CWKQQ6;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared-client/build/xcode-frameworks";
 				INFOPLIST_FILE = "Multiplatform Hello/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -419,6 +392,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDQ7CWKQQ6;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared-client/build/xcode-frameworks";
 				INFOPLIST_FILE = "Multiplatform Hello/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -653,15 +627,6 @@
 			buildConfigurations = (
 				FCB0D00EFDD62A334273D425 /* Debug */,
 				F7DB3C97A2519F168D383C29 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7DD9E4F947F930F7F5849D70 /* Build configuration list for PBXNativeTarget "Shared" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				326C798B6B0B907E8A329D1E /* Debug */,
-				2C6EA3D5B8E178C90C55175C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

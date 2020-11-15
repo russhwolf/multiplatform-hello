@@ -6,7 +6,7 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val serializationVersion = "1.0.0-RC2"
+val serializationVersion = "1.0.0"
 
 kotlin {
     jvm()
