@@ -25,7 +25,7 @@ android {
 dependencies {
     implementation(project(":shared-client"))
     implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 }
 
 tasks.withType<KotlinCompile>().all {
