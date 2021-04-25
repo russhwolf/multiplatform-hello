@@ -16,8 +16,6 @@ pluginManagement {
 }
 rootProject.name = "MultiplatformHello"
 
-enableFeaturePreview("GRADLE_METADATA")
-
 include(":shared")
 include(":shared-client")
 include(":android")

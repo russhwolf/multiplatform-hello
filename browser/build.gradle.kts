@@ -21,8 +21,8 @@ kotlin {
 
 
 dependencies {
-    val coroutineVersion = "1.4.2"
-    val ktorVersion = "1.5.0"
+    val coroutineVersion = "1.4.3"
+    val ktorVersion = "1.5.3"
 
     implementation(project(":shared-client"))
 
