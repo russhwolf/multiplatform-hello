@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.Framework.BitcodeEmbeddingMode.BITCODE
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
@@ -8,8 +7,8 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.4.3-native-mt"
-val ktorVersion = "1.5.3"
+val coroutineVersion = "1.5.0-native-mt"
+val ktorVersion = "1.6.0"
 
 kotlin {
     android("android")
@@ -69,13 +68,19 @@ kotlin {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
 
-                implementation("androidx.test:core:1.2.0")
-                implementation("androidx.test.ext:junit:1.1.1")
+                implementation("androidx.test:core:1.3.0")
+                implementation("androidx.test.ext:junit:1.1.2")
             }
         }
         val iosMain by getting {
             dependencies {
                 api("io.ktor:ktor-client-ios:$ktorVersion")
+
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion") {
+                    version {
+                        strictly(coroutineVersion)
+                    }
+                }
             }
         }
         val iosTest by getting {
@@ -95,19 +100,10 @@ kotlin {
     }
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
-
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     defaultConfig {
         minSdkVersion(15)
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 

@@ -1,12 +1,11 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
     id("kotlinx-serialization")
 }
 
-val serializationVersion = "1.1.0"
+val serializationVersion = "1.2.1"
 
 kotlin {
     jvm()
@@ -68,7 +67,4 @@ kotlin {
     }
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
 

@@ -17,14 +17,15 @@ android {
 
     }
 
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation(project(":shared-client"))
-    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.appcompat:appcompat:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 }
 

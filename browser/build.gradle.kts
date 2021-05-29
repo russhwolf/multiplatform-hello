@@ -10,7 +10,7 @@ kotlin {
             runTask {
                 outputFileName = "browser.js"
                 devServer = KotlinWebpackConfig.DevServer(
-                    contentBase = listOf("$buildDir/processedResources/Js/main"),
+                    static = mutableListOf("$buildDir/processedResources/Js/main"),
                     port = 8081
                 )
             }
@@ -21,8 +21,8 @@ kotlin {
 
 
 dependencies {
-    val coroutineVersion = "1.4.3"
-    val ktorVersion = "1.5.3"
+    val coroutineVersion = "1.5.0"
+    val ktorVersion = "1.6.0"
 
     implementation(project(":shared-client"))
 
