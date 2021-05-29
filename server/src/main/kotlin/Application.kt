@@ -30,5 +30,4 @@ fun Application.module(testing: Boolean = false) {
     }
 }
 
-@Suppress("UNRESOLVED_REFERENCE") // IDE has trouble seeing import from Shared from jvm-only module
 private val message = Message("hello")

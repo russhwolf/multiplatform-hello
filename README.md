@@ -45,7 +45,3 @@ The browser client can be deployed with `./gradlew browser:browserRun`. It will 
 ### Tests
 
 Unit tests exist for the `:shared`, `:shared-client`, and `:server` modules. They can be run using the gradle task `check`. You may need to `clean` as well in order to re-run tests if no code-changes have happened.
-
-## Known issues
-
-- The IDE doesn't recognize that `:shared` is on the `:server` classpath. See https://youtrack.jetbrains.com/issue/KT-29082.
