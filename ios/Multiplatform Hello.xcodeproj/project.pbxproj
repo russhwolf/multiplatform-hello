@@ -14,8 +14,6 @@
 		4630FF0B23400E1F00819003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4630FF0923400E1F00819003 /* LaunchScreen.storyboard */; };
 		4630FF1623400E1F00819003 /* Multiplatform_HelloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FF1523400E1F00819003 /* Multiplatform_HelloTests.swift */; };
 		4630FF2123400E1F00819003 /* Multiplatform_HelloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4630FF2023400E1F00819003 /* Multiplatform_HelloUITests.swift */; };
-		468348CE2560E9E6003BA896 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468348CD2560E9E6003BA896 /* Shared.framework */; };
-		468348D12560EA0C003BA896 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 468348CD2560E9E6003BA896 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				468348D12560EA0C003BA896 /* Shared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,7 +60,6 @@
 		4630FF1C23400E1F00819003 /* Multiplatform HelloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multiplatform HelloUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4630FF2023400E1F00819003 /* Multiplatform_HelloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiplatform_HelloUITests.swift; sourceTree = "<group>"; };
 		4630FF2223400E1F00819003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		468348CD2560E9E6003BA896 /* Shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Shared.framework; path = "../shared-client/build/xcode-frameworks/Shared.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468348CE2560E9E6003BA896 /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,14 +128,6 @@
 			path = "Multiplatform HelloUITests";
 			sourceTree = "<group>";
 		};
-		468EEF55234042270067473E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				468348CD2560E9E6003BA896 /* Shared.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		FEEEBC52568AFCA6B85CEF13 = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +135,6 @@
 				4630FF1423400E1F00819003 /* Multiplatform HelloTests */,
 				4630FF1F23400E1F00819003 /* Multiplatform HelloUITests */,
 				12C3D4BAB246B5761102BA5D /* Products */,
-				468EEF55234042270067473E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,7 +288,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared-client\" \":shared-client:packForXcode\"\n\n";
+			shellScript = "\"$SRCROOT/../gradlew\" -p \"$SRCROOT/../shared-client\" \":shared-client:embedAndSignAppleFrameworkForXcode\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -373,10 +359,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDQ7CWKQQ6;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared-client/build/xcode-frameworks";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared-client/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
 				INFOPLIST_FILE = "Multiplatform Hello/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Shared,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.multiplatform.Multiplatform-Hello";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -392,10 +383,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QDQ7CWKQQ6;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared-client/build/xcode-frameworks";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared-client/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
 				INFOPLIST_FILE = "Multiplatform Hello/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Shared,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.multiplatform.Multiplatform-Hello";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
