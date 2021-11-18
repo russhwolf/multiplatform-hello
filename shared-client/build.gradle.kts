@@ -1,41 +1,28 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.Framework.BitcodeEmbeddingMode.BITCODE
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.5.0-native-mt"
-val ktorVersion = "1.6.0"
+val coroutineVersion = "1.5.2-native-mt"
+val ktorVersion = "1.6.5"
 
 kotlin {
-    android("android")
+    android()
 
-    val isDevice = System.getenv("SDK_NAME")?.startsWith("iphoneos") == true
-    val ios: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget = if (isDevice) ::iosArm64 else ::iosX64
-    ios("ios") {
+    ios {
         binaries {
             framework {
                 baseName = "Shared"
-                embedBitcode = BITCODE
-                transitiveExport = true
             }
         }
     }
 
-    js("js") {
+    js {
         browser()
     }
 
     sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.RequiresOptIn")
-            }
-        }
-
         commonMain {
             dependencies {
                 implementation(project(":shared"))
@@ -50,8 +37,7 @@ kotlin {
         }
         commonTest {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                implementation(kotlin("test"))
 
                 implementation("io.ktor:ktor-client-mock:$ktorVersion")
             }
@@ -65,11 +51,7 @@ kotlin {
         }
         val androidTest by getting {
             dependencies {
-                implementation(kotlin("test"))
-                implementation(kotlin("test-junit"))
-
-                implementation("androidx.test:core:1.3.0")
-                implementation("androidx.test.ext:junit:1.1.2")
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosMain by getting {
@@ -94,16 +76,15 @@ kotlin {
         }
         val jsTest by getting {
             dependencies {
-                implementation(kotlin("test-js"))
             }
         }
     }
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 31
     defaultConfig {
-        minSdkVersion(15)
+        minSdk = 15
     }
 }
 

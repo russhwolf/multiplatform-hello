@@ -1,30 +1,20 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     kotlin("multiplatform")
     id("kotlinx-serialization")
 }
 
-val serializationVersion = "1.2.1"
+val serializationVersion = "1.3.0"
 
 kotlin {
     jvm()
 
-    val isDevice = System.getenv("SDK_NAME")?.startsWith("iphoneos") == true
-    val ios: (String) -> KotlinNativeTarget = if (isDevice) ::iosArm64 else ::iosX64
-    ios("ios")
+    ios()
 
-    js("js") {
+    js {
         browser()
     }
 
     sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.RequiresOptIn")
-            }
-        }
-
         commonMain {
             dependencies {
                 api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
@@ -33,8 +23,7 @@ kotlin {
         }
         commonTest {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                implementation(kotlin("test"))
             }
         }
         val jvmMain by getting {
@@ -43,8 +32,7 @@ kotlin {
         }
         val jvmTest by getting {
             dependencies {
-                implementation(kotlin("test"))
-                implementation(kotlin("test-junit"))
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosMain by getting {
@@ -61,7 +49,6 @@ kotlin {
         }
         val jsTest by getting {
             dependencies {
-                implementation(kotlin("test-js"))
             }
         }
     }

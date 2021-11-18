@@ -1,17 +1,15 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.application")
     kotlin("android")
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 31
 
     defaultConfig {
         applicationId = "com.example.multiplatform.android"
-        minSdkVersion(15)
-        targetSdkVersion(30)
+        minSdk = 15
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0"
 
@@ -25,10 +23,6 @@ android {
 
 dependencies {
     implementation(project(":shared-client"))
-    implementation("androidx.appcompat:appcompat:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
-}
-
-tasks.withType<KotlinCompile>().all {
-    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    implementation("androidx.appcompat:appcompat:1.3.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
 }

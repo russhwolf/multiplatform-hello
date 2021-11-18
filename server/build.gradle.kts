@@ -4,7 +4,7 @@ plugins {
     application
 }
 
-val ktorVersion = "1.6.0"
+val ktorVersion = "1.6.5"
 
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
@@ -16,8 +16,9 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
 
-    implementation("ch.qos.logback:logback-classic:1.2.3")
+    implementation("ch.qos.logback:logback-classic:1.2.6")
 
+    testImplementation(kotlin("test"))
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
 }
 
