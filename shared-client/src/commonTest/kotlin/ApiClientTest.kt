@@ -3,19 +3,22 @@ package com.example.multiplatform.shared.client
 import com.example.multiplatform.shared.Message
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
-import io.ktor.client.features.ClientRequestException
+import io.ktor.client.plugins.ClientRequestException
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
+@OptIn(ExperimentalCoroutinesApi::class)
 class ApiClientTest {
     @Test
-    fun getMessage(): Unit = runBlocking {
+    fun getMessage() = runTest {
         val mockEngine = MockEngine {
-            if (it.url.encodedPath == "message") {
+            if (it.url.encodedPath == "/message") {
                 respond(
                     content = """{"value":"test"}""",
                     status = HttpStatusCode.OK,
@@ -38,7 +41,7 @@ class ApiClientTest {
     }
 
     @Test
-    fun apiError(): Unit = runBlocking {
+    fun apiError() = runTest {
         val mockEngine = MockEngine {
             respond(
                 content = "",

@@ -3,7 +3,7 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val serializationVersion = "1.3.0"
+val serializationVersion = "1.3.2"
 
 kotlin {
     jvm()

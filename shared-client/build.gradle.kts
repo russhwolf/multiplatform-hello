@@ -4,8 +4,8 @@ plugins {
     id("kotlinx-serialization")
 }
 
-val coroutineVersion = "1.5.2-native-mt"
-val ktorVersion = "1.6.5"
+val coroutineVersion = "1.6.0"
+val ktorVersion = "2.0.0-beta-1"
 
 kotlin {
     android()
@@ -30,14 +30,16 @@ kotlin {
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
 
                 api("io.ktor:ktor-client-core:$ktorVersion")
-                api("io.ktor:ktor-client-json:$ktorVersion")
-                api("io.ktor:ktor-client-serialization:$ktorVersion")
+                api("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+                api("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 api("io.ktor:ktor-client-logging:$ktorVersion")
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
+
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
 
                 implementation("io.ktor:ktor-client-mock:$ktorVersion")
             }
