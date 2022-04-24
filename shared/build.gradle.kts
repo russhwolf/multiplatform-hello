@@ -1,6 +1,6 @@
 plugins {
     kotlin("multiplatform")
-    id("kotlinx-serialization")
+    kotlin("plugin.serialization")
 }
 
 val serializationVersion = "1.3.2"

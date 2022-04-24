@@ -7,4 +7,4 @@ actual val httpClientEngine: HttpClientEngine = Android.create()
 
 // Android emulator forwards local network localhost to here.
 // This will not work for physical device.
-actual val host: String = "10.0.2.2"
+actual val urlHost: String = "10.0.2.2"

@@ -1,11 +1,11 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("kotlinx-serialization")
+    kotlin("plugin.serialization")
 }
 
-val coroutineVersion = "1.6.0"
-val ktorVersion = "2.0.0-beta-1"
+val coroutineVersion = "1.6.1"
+val ktorVersion = "2.0.0"
 
 kotlin {
     android()
