@@ -1,20 +1,19 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
-    kotlin("plugin.serialization")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.serialization)
 }
 
-val coroutineVersion = "1.6.1"
-val ktorVersion = "2.0.0"
-
 kotlin {
-    android()
+    androidTarget()
 
-    ios {
-        binaries {
-            framework {
-                baseName = "Shared"
-            }
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64(),
+        iosX64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "Shared"
         }
     }
 
@@ -27,66 +26,56 @@ kotlin {
             dependencies {
                 implementation(project(":shared"))
 
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+                api(libs.kotlinx.coroutines.core)
 
-                api("io.ktor:ktor-client-core:$ktorVersion")
-                api("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-                api("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-                api("io.ktor:ktor-client-logging:$ktorVersion")
+                api(libs.ktor.client.core)
+                api(libs.ktor.client.contentNegotiation)
+                api(libs.ktor.serialization)
+                api(libs.ktor.client.logging)
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
 
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion")
+                api(libs.kotlinx.coroutines.test)
 
-                implementation("io.ktor:ktor-client-mock:$ktorVersion")
+                implementation(libs.ktor.client.mock)
             }
         }
-        val androidMain by getting {
+        androidMain {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+                api(libs.kotlinx.coroutines.android)
 
-                api("io.ktor:ktor-client-android:$ktorVersion")
+                api(libs.ktor.client.android)
             }
         }
-        val androidTest by getting {
+        iosMain {
             dependencies {
-                implementation("junit:junit:4.13.2")
-            }
-        }
-        val iosMain by getting {
-            dependencies {
-                api("io.ktor:ktor-client-ios:$ktorVersion")
+                api(libs.ktor.client.ios)
 
-                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion") {
-                    version {
-                        strictly(coroutineVersion)
-                    }
-                }
-            }
-        }
-        val iosTest by getting {
-            dependencies {
+                api(libs.kotlinx.coroutines.core)
             }
         }
         val jsMain by getting {
             dependencies {
-                api("io.ktor:ktor-client-js:$ktorVersion")
-            }
-        }
-        val jsTest by getting {
-            dependencies {
+                api(libs.ktor.client.js)
             }
         }
     }
 }
 
 android {
-    compileSdk = 31
+    namespace = "com.example.multiplatform.shared"
+
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
-        minSdk = 15
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 

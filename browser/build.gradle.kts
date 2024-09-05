@@ -1,36 +1,30 @@
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
-    kotlin("js")
+    alias(libs.plugins.kotlin.multiplatform)
 }
 
 kotlin {
     js {
         browser {
-            runTask {
+            commonWebpackConfig {
                 outputFileName = "browser.js"
-                devServer = KotlinWebpackConfig.DevServer(
-                    static = mutableListOf("$buildDir/processedResources/Js/main"),
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     port = 8081
-                )
+                    static = (static ?: mutableListOf()).apply {
+                        add(project.projectDir.path)
+                    }
+                }
             }
         }
         binaries.executable()
     }
-}
 
-
-dependencies {
-    val coroutineVersion = "1.6.1"
-    val ktorVersion = "2.0.0"
-
-    implementation(project(":shared-client"))
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutineVersion")
-
-    implementation("io.ktor:ktor-client-js:$ktorVersion")
-    implementation("io.ktor:ktor-client-core-js:$ktorVersion")
-    implementation("io.ktor:ktor-client-json-js:$ktorVersion")
-    implementation("io.ktor:ktor-client-serialization-js:$ktorVersion")
-    implementation("io.ktor:ktor-client-logging-js:$ktorVersion")
+    sourceSets {
+        jsMain {
+            dependencies {
+                implementation(project(":shared-client"))
+            }
+        }
+    }
 }

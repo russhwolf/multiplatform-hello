@@ -1,11 +1,19 @@
+rootProject.name = "MultiplatformHello"
+
 pluginManagement {
     repositories {
         google()
         mavenCentral()
-        maven(url = "https://plugins.gradle.org/m2/")
+        gradlePluginPortal()
     }
 }
-rootProject.name = "MultiplatformHello"
+
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 
 include(":shared")
 include(":shared-client")

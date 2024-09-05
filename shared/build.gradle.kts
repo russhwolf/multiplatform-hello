@@ -1,14 +1,14 @@
 plugins {
-    kotlin("multiplatform")
-    kotlin("plugin.serialization")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
 }
-
-val serializationVersion = "1.3.2"
 
 kotlin {
     jvm()
 
-    ios()
+    iosArm64()
+    iosSimulatorArm64()
+    iosX64()
 
     js {
         browser()
@@ -17,38 +17,13 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
-                api("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+                api(libs.kotlinx.serialization.core)
+                api(libs.kotlinx.serialization.json)
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-            }
-        }
-        val jvmMain by getting {
-            dependencies {
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation("junit:junit:4.13.2")
-            }
-        }
-        val iosMain by getting {
-            dependencies {
-            }
-        }
-        val iosTest by getting {
-            dependencies {
-            }
-        }
-        val jsMain by getting {
-            dependencies {
-            }
-        }
-        val jsTest by getting {
-            dependencies {
             }
         }
     }

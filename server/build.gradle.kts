@@ -1,10 +1,8 @@
 plugins {
-    kotlin("jvm")
-    kotlin("plugin.serialization")
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
     application
 }
-
-val ktorVersion = "2.0.0"
 
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
@@ -13,15 +11,15 @@ application {
 dependencies {
     implementation(project(":shared"))
 
-    implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-    implementation("io.ktor:ktor-server-cors:$ktorVersion")
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.contentNegotiation)
+    implementation(libs.ktor.serialization)
+    implementation(libs.ktor.server.cors)
 
-    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation(libs.logback.classic)
 
     testImplementation(kotlin("test"))
-    testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
+    testImplementation(libs.ktor.server.tests)
 }
 
