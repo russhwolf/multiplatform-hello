@@ -59,7 +59,7 @@ kotlin {
                 api(libs.kotlinx.coroutines.core)
             }
         }
-        val jsMain by getting {
+        jsMain {
             dependencies {
                 api(libs.ktor.client.js)
             }
