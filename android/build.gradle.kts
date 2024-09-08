@@ -25,6 +25,10 @@ android {
     buildFeatures {
         compose = true
     }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 
 dependencies {
