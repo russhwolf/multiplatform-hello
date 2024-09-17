@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
@@ -19,8 +21,12 @@ kotlin {
         }
     }
 
-    js {
-        browser()
+    listOf(
+        js(),
+        @OptIn(ExperimentalWasmDsl::class)
+        wasmJs()
+    ).forEach {
+        it.browser()
     }
 
     sourceSets {
@@ -60,6 +66,11 @@ kotlin {
             }
         }
         jsMain {
+            dependencies {
+                api(libs.ktor.client.js)
+            }
+        }
+        wasmJsMain {
             dependencies {
                 api(libs.ktor.client.js)
             }

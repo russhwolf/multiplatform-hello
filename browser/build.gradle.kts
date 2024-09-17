@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
@@ -5,8 +6,12 @@ plugins {
 }
 
 kotlin {
-    js {
-        browser {
+    listOf(
+        js(),
+        @OptIn(ExperimentalWasmDsl::class)
+        wasmJs()
+    ).forEach { target ->
+        target.browser {
             commonWebpackConfig {
                 outputFileName = "browser.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
@@ -17,11 +22,11 @@ kotlin {
                 }
             }
         }
-        binaries.executable()
+        target.binaries.executable()
     }
 
     sourceSets {
-        jsMain {
+        commonMain {
             dependencies {
                 implementation(project(":shared-client"))
             }

@@ -11,7 +11,7 @@ androidx-activity = "1.9.2"
 
 kotlinx-coroutines = "1.8.1"
 kotlinx-serialization = "1.7.2"
-ktor = "2.3.12"
+ktor = "3.0.0"
 
 logback = "1.5.7"
 
@@ -35,7 +35,7 @@ ktor-server-contentNegotiation = { module = "io.ktor:ktor-server-content-negotia
 ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
 ktor-server-cors = { module = "io.ktor:ktor-server-cors", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
-ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor" }
+ktor-server-tests = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
 
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-composeBom" }
 androidx-compose-material = { module = "androidx.compose.material:material" }

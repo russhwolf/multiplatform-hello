@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
@@ -12,8 +14,12 @@ kotlin {
     iosSimulatorArm64()
     iosX64()
 
-    js {
-        browser()
+    listOf(
+        js(),
+        @OptIn(ExperimentalWasmDsl::class)
+        wasmJs()
+    ).forEach {
+        it.browser()
     }
 
     sourceSets {
