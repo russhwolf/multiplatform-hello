@@ -40,6 +40,7 @@ ktor-server-tests = { module = "io.ktor:ktor-server-tests", version.ref = "ktor"
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-composeBom" }
 androidx-compose-material = { module = "androidx.compose.material:material" }
 androidx-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
