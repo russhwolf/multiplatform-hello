@@ -34,45 +34,45 @@ kotlin {
             dependencies {
                 implementation(project(":shared"))
 
-                api(libs.kotlinx.coroutines.core)
+                implementation(libs.kotlinx.coroutines.core)
 
-                api(libs.ktor.client.core)
-                api(libs.ktor.client.contentNegotiation)
-                api(libs.ktor.serialization)
-                api(libs.ktor.client.logging)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.contentNegotiation)
+                implementation(libs.ktor.serialization)
+                implementation(libs.ktor.client.logging)
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
 
-                api(libs.kotlinx.coroutines.test)
+                implementation(libs.kotlinx.coroutines.test)
 
                 implementation(libs.ktor.client.mock)
             }
         }
         androidMain {
             dependencies {
-                api(libs.kotlinx.coroutines.android)
+                implementation(libs.kotlinx.coroutines.android)
 
-                api(libs.ktor.client.android)
+                implementation(libs.ktor.client.android)
             }
         }
         iosMain {
             dependencies {
-                api(libs.ktor.client.ios)
+                implementation(libs.ktor.client.ios)
 
-                api(libs.kotlinx.coroutines.core)
+                implementation(libs.kotlinx.coroutines.core)
             }
         }
         jsMain {
             dependencies {
-                api(libs.ktor.client.js)
+                implementation(libs.ktor.client.js)
             }
         }
         wasmJsMain {
             dependencies {
-                api(libs.ktor.client.js)
+                implementation(libs.ktor.client.js)
             }
         }
     }
