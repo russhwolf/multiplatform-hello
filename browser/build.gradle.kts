@@ -31,5 +31,11 @@ kotlin {
                 implementation(project(":shared-client"))
             }
         }
+        wasmJsMain {
+            dependencies {
+                // Browser APIs are in the JS stdlib but Wasm needs them from library as of Kotlin 2.1.0
+                implementation(libs.kotlinx.browser)
+            }
+        }
     }
 }

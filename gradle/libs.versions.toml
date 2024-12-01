@@ -1,16 +1,17 @@
 [versions]
-kotlin = "2.0.21"
+kotlin = "2.1.0"
 
-android-gradle = "8.5.2"
+android-gradle = "8.7.2"
 android-minSdk = "23"
-android-compileSdk = "34"
-android-targetSdk = "34"
+android-compileSdk = "35"
+android-targetSdk = "35"
 
-androidx-composeBom = "2024.09.03"
-androidx-activity = "1.9.2"
+androidx-composeBom = "2024.11.00"
+androidx-activity = "1.9.3"
 
 kotlinx-coroutines = "1.9.0"
 kotlinx-serialization = "1.7.3"
+kotlinx-browser = "0.3"
 ktor = "3.0.0"
 
 logback = "1.5.7"
@@ -22,6 +23,8 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+kotlinx-browser = { module = "org.jetbrains.kotlinx:kotlinx-browser", version.ref = "kotlinx-browser" }
 
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-client-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
