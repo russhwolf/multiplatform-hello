@@ -2,14 +2,21 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
     alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
     jvmToolchain(17)
 
-    androidTarget()
+    androidLibrary {
+        namespace = "com.example.multiplatform.shared"
+
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+
+        withHostTest {}
+    }
 
     listOf(
         iosArm64(),
@@ -75,20 +82,6 @@ kotlin {
                 implementation(libs.ktor.client.js)
             }
         }
-    }
-}
-
-android {
-    namespace = "com.example.multiplatform.shared"
-
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
