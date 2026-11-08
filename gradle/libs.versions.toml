@@ -1,20 +1,20 @@
 [versions]
-kotlin = "2.1.20"
+kotlin = "2.4.21"
 
-android-gradle = "8.9.3"
+android-gradle = "9.3.3"
 android-minSdk = "23"
-android-compileSdk = "35"
-android-targetSdk = "35"
+android-compileSdk = "37"
+android-targetSdk = "37"
 
-androidx-composeBom = "2025.03.01"
-androidx-activity = "1.10.1"
+androidx-composeBom = "2026.09.00"
+androidx-activity = "1.13.0"
 
-kotlinx-coroutines = "1.10.1"
-kotlinx-serialization = "1.8.0"
-kotlinx-browser = "0.3"
-ktor = "3.1.1"
+kotlinx-coroutines = "1.11.0"
+kotlinx-serialization = "1.12.0"
+kotlinx-browser = "0.5.0"
+ktor = "3.6.1"
 
-logback = "1.5.7"
+logback = "1.6.6"
 
 [libraries]
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
@@ -52,7 +52,6 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "android-gradle" }

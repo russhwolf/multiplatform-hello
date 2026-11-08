@@ -9,7 +9,7 @@ plugins {
 kotlin {
     jvmToolchain(17)
 
-    androidLibrary {
+    android {
         namespace = "com.example.multiplatform.shared"
 
         compileSdk = libs.versions.android.compileSdk.get().toInt()

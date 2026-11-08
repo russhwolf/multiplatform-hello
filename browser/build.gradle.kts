@@ -16,9 +16,7 @@ kotlin {
                 outputFileName = "browser.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     port = 8081
-                    static = (static ?: mutableListOf()).apply {
-                        add(project.projectDir.path)
-                    }
+                    static(project.projectDir.path)
                 }
             }
         }
